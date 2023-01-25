@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060279115881",
+    "project_id": "tosave-39399",
+    "storage_bucket": "tosave-39399.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060279115881:android:1068e4bb6069efd9e302f8",
+        "android_client_info": {
+          "package_name": "com.tosave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060279115881-iagdghnrafus493rn1nijsuas9lrhatt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC08yiFmo8-FTyEZTfV2pOhZF1vchOLzOA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060279115881-iagdghnrafus493rn1nijsuas9lrhatt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
