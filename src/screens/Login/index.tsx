@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, ScrollView, Modal, Alert, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import { Input } from '../../components/Input';
@@ -12,18 +12,24 @@ export function Login() {
 
   const navigation = useNavigation();
 
+  const [modalVisible, setModalVisible] = useState(false);
+
   function handleNewAccount(){
     navigation.navigate('register')
   }
 
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleLogin(){
     auth()
     .signInWithEmailAndPassword(email, password)
-    .then(() => Alert.alert("Logado com sucesso!"))
+    .catch((error) => console.log(error))
+  }
+  function handleForgotPassword(){
+    auth()
+    .sendPasswordResetEmail(email)
+    .then(() => Alert.alert("Redefinir senha", "Enviamos um e-mail para você"))
     .catch((error) => console.log(error))
   }
 
@@ -58,16 +64,70 @@ export function Login() {
             onPress={handleLogin}
             />
 
-          <Text style={styles.text}>
-            ou
-          </Text>
-
-          <Button
+            <View style={styles.containerButton}>
+            <Button
             title='Cadastra-se'
             color={theme.COLORS.SECONDARY}
             onPress={handleNewAccount}
             />
+            <Button
+            title='Recuperar senha'
+            color={theme.COLORS.SECONDARY}
+            onPress={() => setModalVisible(true)}
+            />
 
+            <View style={styles.containerModal}>
+              <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={
+                  () => {
+                      Alert.alert("Envio Concluido...");
+                      setModalVisible(!modalVisible);
+                  }
+          }
+              >
+              <View style={styles.containerModal}>
+              <TouchableOpacity 
+              onPress={() => setModalVisible(false)}
+              style={styles.subContainerModal}
+              >
+                <View style={styles.modal}>
+                <TouchableOpacity 
+                onPress={() => setModalVisible(false)}
+                style={styles.buttonX}>
+                    <Text style={styles.textX}>
+                      X
+                    </Text>
+                  </TouchableOpacity>
+                  <Text style={styles.textModal}>
+                    Recuperar senha
+                  </Text>
+                  <View style={styles.containerInputModal}>
+                  <Input
+                  label='E-mail'
+                  placeholder='Ex: tosave@gmail.com'
+                  onChangeText={setEmail}
+                  value={email}
+                  />
+                  </View>
+                  <View style={styles.containerButtonModal}>
+                  <Button
+                    title='Enviar'
+                    color={theme.COLORS.PRIMARY}
+                    onPress={handleForgotPassword}
+                  />
+                  
+                  </View>
+                </View>
+              </TouchableOpacity>
+              </View>
+              </Modal>
+             
+            </View>
+
+            </View>
         </View>
     </View>
     </ScrollView>

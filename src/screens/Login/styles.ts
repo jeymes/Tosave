@@ -1,5 +1,6 @@
 import  { StyleSheet } from 'react-native';
 import { theme } from '../../theme';
+import { Rows } from 'phosphor-react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -26,10 +27,60 @@ export const styles = StyleSheet.create({
     fontWeight: '900',
     marginBottom: 60
   },
-  text: {
-    fontSize: theme.FONT_SIZE.LG,
+  containerButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '50%',
+    flexDirection: 'row'
+  },
+  containerModal: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    flex: 1,
+  },
+  subContainerModal: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    flex: 1,
+    backgroundColor: '#0005'
+  },
+  modal: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: 350,
+    height: 380,
+    backgroundColor: theme.COLORS.BACKGROUNDMODAL,
+    borderRadius: 10
+  },
+  containerInputModal:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '90%',
+    marginTop: 20,
+  },
+  containerButtonModal:{
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '90%',
+    height: 30,
+    marginTop: 30,
+  },
+  buttonX:{
+    justifyContent: 'flex-start',
+    alignItems: 'flex-end',
+    width: '90%',
+    padding: 5
+  },
+  textModal: {
+    fontSize: theme.FONT_SIZE.XL,
+    color: theme.COLORS.PRIMARY,
+    fontWeight: '700',
+  },
+  textX: {
+    fontSize: theme.FONT_SIZE.XL,
     color: theme.COLORS.TEXT,
-    fontWeight: '500',
-    marginTop: 50
+    fontWeight: '700',
   },
 });

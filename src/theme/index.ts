@@ -2,6 +2,7 @@ export const theme = {
     COLORS: {
       BACKGROUND: '#000',
       SECBACKGROUND: '#363636',
+      BACKGROUNDMODAL: '#1C1C1C',
   
       PRIMARY: '#D32323',
       SECONDARY: '#008000	',

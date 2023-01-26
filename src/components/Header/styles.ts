@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { theme } from '../../theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,13 +7,14 @@ export const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center',
     alignItems:'center',
-    backgroundColor: '#000',
+    backgroundColor: theme.COLORS.BACKGROUND,
   },
   subContainer: {
     width: '90%',
     height: "100%",
-    justifyContent: 'center',
-    alignItems:'flex-start',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems:'flex-end',
   },
   title: {
     fontSize: 25,

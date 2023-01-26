@@ -18,7 +18,7 @@ export function Button({title, color, ...rest}: Props) {
     alignItems: 'center',
     height: 60,
     borderRadius: 10,
-    marginTop: 60
+    marginTop: 50
      }}
     >
         <Text style={styles.title}>
