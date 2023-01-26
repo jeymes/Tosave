@@ -5,9 +5,10 @@ import { styles } from './styles';
 type Props = TouchableOpacityProps & {
     title: string;
     color: string;
+    marginTop: number;
 }
 
-export function Button({title, color, ...rest}: Props) {
+export function Button({title, color, marginTop, ...rest}: Props) {
   return (
     <TouchableOpacity 
     {...rest}
@@ -18,7 +19,7 @@ export function Button({title, color, ...rest}: Props) {
     alignItems: 'center',
     height: 60,
     borderRadius: 10,
-    marginTop: 50
+    marginTop: marginTop,
      }}
     >
         <Text style={styles.title}>

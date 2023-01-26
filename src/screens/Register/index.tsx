@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, Text, ScrollView, Alert } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import { Input } from '../../components/Input';
@@ -6,10 +6,16 @@ import { Button } from '../../components/Button';
 import { theme } from '../../theme';
 
 import auth from '@react-native-firebase/auth';
+import { useNavigation } from '@react-navigation/native';
 
 export function Register() {
 
-  const [name, setName] = useState('');
+  const navigation = useNavigation()
+
+  function handleGoBack(){
+    navigation.goBack();
+  }
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -30,12 +36,6 @@ export function Register() {
           </Text>
 
             <View style={styles.containerRegister}>
-            {/* <Input 
-            placeholder='Ex: tosave'
-            label='Nome'
-            onChangeText={setName}
-            value={name}
-            /> */}
             
             <Input 
             placeholder='Ex: tosave@gmail.com'
@@ -52,18 +52,17 @@ export function Register() {
             </View>
 
             <Button
-            title='Cadastrar'
+            marginTop={60}
+            title='Cadastrar e Acessar'
             color={theme.COLORS.PRIMARY}
             onPress={handleNewAccount}
             />
 
-          <Text style={styles.text}>
-            ou
-          </Text>
-
           <Button
+            marginTop={60}
             title='Já tenho conta'
             color={theme.COLORS.SECONDARY}
+            onPress={handleGoBack}
             />
 
         </View>

@@ -50,7 +50,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     width: 350,
-    height: 380,
+    height: 340,
     backgroundColor: theme.COLORS.BACKGROUNDMODAL,
     borderRadius: 10
   },
@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-end',
     width: '90%',
-    padding: 5
+    paddingTop: 5
   },
   textModal: {
     fontSize: theme.FONT_SIZE.XL,

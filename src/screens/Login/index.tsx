@@ -59,6 +59,7 @@ export function Login() {
             </View>
 
             <Button
+            marginTop={60}
             title='Entrar'
             color={theme.COLORS.PRIMARY}
             onPress={handleLogin}
@@ -66,11 +67,13 @@ export function Login() {
 
             <View style={styles.containerButton}>
             <Button
+            marginTop={60}
             title='Cadastra-se'
             color={theme.COLORS.SECONDARY}
             onPress={handleNewAccount}
             />
             <Button
+            marginTop={60}
             title='Recuperar senha'
             color={theme.COLORS.SECONDARY}
             onPress={() => setModalVisible(true)}
@@ -114,6 +117,7 @@ export function Login() {
                   </View>
                   <View style={styles.containerButtonModal}>
                   <Button
+                    marginTop={0}
                     title='Enviar'
                     color={theme.COLORS.PRIMARY}
                     onPress={handleForgotPassword}
