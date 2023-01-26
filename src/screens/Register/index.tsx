@@ -20,10 +20,30 @@ export function Register() {
   const [password, setPassword] = useState('');
 
   function handleNewAccount(){
+
+    if (email.trim().length === 0) {
+      return Alert.alert('Nova Conta', 'Informe um e-mail para cadastrar.');
+    }
+    if (password.trim().length === 0) {
+      return Alert.alert('Nova Conta', 'Informe uma senha para cadastrar.');
+    }
     auth()
     .createUserWithEmailAndPassword(email, password)
     .then(() => Alert.alert("Conta", "Cadastrado com sucesso!"))
-    .catch((error) => console.log(error))
+    .then(() => navigation.navigate('login'))
+    .catch((error) => {
+      console.log(error)
+
+      if(error.code === 'auth/email-already-in-use') {
+        return Alert.alert('E-mail não disponível, escolha outro e-mail para cadastrar.')
+      }
+      if(error.code === 'auth/weak-password') {
+        return Alert.alert('A senha deve ter pelo menos 6 caracteres.')
+      }
+      if(error.code === 'auth/invalid-email') {
+        return Alert.alert('O endereço de e-mail está mal formatado.')
+      }
+    })
   }
 
   return (

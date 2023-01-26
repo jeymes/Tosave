@@ -22,15 +22,51 @@ export function Login() {
   const [password, setPassword] = useState('');
 
   function handleLogin(){
+    if (email.trim().length === 0) {
+      return Alert.alert('Acessar Conta', 'Informe um e-mail cadastrado para acessar.');
+    }
+    if (password.trim().length === 0) {
+      return Alert.alert('Acessar Conta', 'Informe uma senha cadastrada para acessar.');
+    }
     auth()
     .signInWithEmailAndPassword(email, password)
-    .catch((error) => console.log(error))
+    .catch((error) => {
+      console.log(error)
+
+      if(error.code === 'auth/wrong-password') {
+        return Alert.alert('A senha é inválida ou o usuário não possui uma senha.')
+      }
+      if(error.code === 'auth/invalid-email') {
+        return Alert.alert('O endereço de e-mail está mal formatado.')
+      }
+      if(error.code === 'auth/too-many-requests') {
+        return Alert.alert('Bloqueamos todas as solicitações deste dispositivo devido a atividades incomuns. Tente mais tarde.')
+      }
+      if(error.code === 'auth/user-not-found') {
+        return Alert.alert('Não há registro de usuário correspondente a este e-mail.')
+      }
+    })
   }
   function handleForgotPassword(){
+    if (email.trim().length === 0) {
+      return Alert.alert('Redefinir Senha', 'Informe um e-mail cadastrado para redefinir sua senha.');
+    }
     auth()
     .sendPasswordResetEmail(email)
-    .then(() => Alert.alert("Redefinir senha", "Enviamos um e-mail para você"))
-    .catch((error) => console.log(error))
+    .then(() => Alert.alert("Redefinir senha", "Enviamos um e-mail para você."))
+    .catch((error) => {
+      console.log(error)
+
+      if(error.code === 'auth/user-not-found') {
+        return Alert.alert('Não há registro de usuário correspondente a este e-mail.')
+      }
+      if(error.code === 'auth/invalid-email') {
+        return Alert.alert('O endereço de e-mail está mal formatado.')
+      }
+      if(error.code === 'auth/too-many-requests') {
+        return Alert.alert('Bloqueamos todas as solicitações deste dispositivo devido a atividades incomuns. Tente mais tarde.')
+      }
+    })
   }
 
   return (
@@ -74,7 +110,7 @@ export function Login() {
             />
             <Button
             marginTop={60}
-            title='Recuperar senha'
+            title='Redefinir Senha'
             color={theme.COLORS.SECONDARY}
             onPress={() => setModalVisible(true)}
             />
@@ -105,7 +141,7 @@ export function Login() {
                     </Text>
                   </TouchableOpacity>
                   <Text style={styles.textModal}>
-                    Recuperar senha
+                  Redefinir Senha
                   </Text>
                   <View style={styles.containerInputModal}>
                   <Input

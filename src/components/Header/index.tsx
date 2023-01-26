@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
-import {SignOut} from 'phosphor-react-native';
+import { LogOut } from "react-native-feather";
 
 import auth from '@react-native-firebase/auth'
 import { theme } from '../../theme';
@@ -21,10 +21,7 @@ export function Header() {
       </Text>
 
       <TouchableOpacity onPress={handleSignOut}>
-        <Text>
-          Sair
-        </Text>
-      {/* <SignOut size={32} weight="bold" color='red' /> */}
+      <LogOut stroke={theme.COLORS.PRIMARY} width={32} height={32} />
       </TouchableOpacity>
       </View>
     </View>
