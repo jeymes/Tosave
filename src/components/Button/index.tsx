@@ -3,7 +3,7 @@ import { TouchableOpacity, TouchableOpacityProps, Text } from 'react-native';
 import { styles } from './styles';
 
 type Props = TouchableOpacityProps & {
-    title: string;
+    title: any;
     color: string;
     marginTop: number;
 }

@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Modal, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, Modal, Alert, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import { Input } from '../../components/Input';
@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 export function Login() {
 
   const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -22,6 +23,7 @@ export function Login() {
   const [password, setPassword] = useState('');
 
   function handleLogin(){
+    setIsLoading(true)
     if (email.trim().length === 0) {
       return Alert.alert('Acessar Conta', 'Informe um e-mail cadastrado para acessar.');
     }
@@ -46,8 +48,12 @@ export function Login() {
         return Alert.alert('Não há registro de usuário correspondente a este e-mail.')
       }
     })
+    .finally(() => setIsLoading(false))
   }
+
+
   function handleForgotPassword(){
+    setIsLoading(true)
     if (email.trim().length === 0) {
       return Alert.alert('Redefinir Senha', 'Informe um e-mail cadastrado para redefinir sua senha.');
     }
@@ -67,6 +73,7 @@ export function Login() {
         return Alert.alert('Bloqueamos todas as solicitações deste dispositivo devido a atividades incomuns. Tente mais tarde.')
       }
     })
+    .finally(() => setIsLoading(false))
   }
 
   return (
@@ -96,7 +103,7 @@ export function Login() {
 
             <Button
             marginTop={60}
-            title='Entrar'
+            title={isLoading ? <ActivityIndicator color="#fff"/> : 'Acessar'}
             color={theme.COLORS.PRIMARY}
             onPress={handleLogin}
             />
@@ -154,7 +161,7 @@ export function Login() {
                   <View style={styles.containerButtonModal}>
                   <Button
                     marginTop={0}
-                    title='Enviar'
+                    title={isLoading ? <ActivityIndicator color="#fff"/> : 'Enviar'}
                     color={theme.COLORS.PRIMARY}
                     onPress={handleForgotPassword}
                   />

@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Alert } from 'react-native';
+import { View, Text, ScrollView, Alert, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import { styles } from './styles';
 import { Input } from '../../components/Input';
@@ -11,6 +11,7 @@ import { useNavigation } from '@react-navigation/native';
 export function Register() {
 
   const navigation = useNavigation()
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleGoBack(){
     navigation.goBack();
@@ -20,7 +21,7 @@ export function Register() {
   const [password, setPassword] = useState('');
 
   function handleNewAccount(){
-
+    setIsLoading(true)
     if (email.trim().length === 0) {
       return Alert.alert('Nova Conta', 'Informe um e-mail para cadastrar.');
     }
@@ -44,6 +45,9 @@ export function Register() {
         return Alert.alert('O endereço de e-mail está mal formatado.')
       }
     })
+    .finally( () =>
+      setIsLoading(false)
+    )
   }
 
   return (
@@ -73,7 +77,7 @@ export function Register() {
 
             <Button
             marginTop={60}
-            title='Cadastrar e Acessar'
+            title={isLoading ? <ActivityIndicator color="#fff"/> : ' Criar e acessar'}
             color={theme.COLORS.PRIMARY}
             onPress={handleNewAccount}
             />
