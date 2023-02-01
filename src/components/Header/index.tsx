@@ -1,12 +1,15 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
-import { LogOut } from "react-native-feather";
 
 import auth from '@react-native-firebase/auth'
-import { theme } from '../../theme';
 
-export function Header() {
+type Props ={
+  title: string
+  button?: any
+}
+
+export function Header({title, button}:Props) {
 
   function handleSignOut(){
     auth().signOut();
@@ -17,11 +20,11 @@ export function Header() {
       <View style={styles.subContainer}>
 
       <Text style={styles.title}>
-        To save
+        {title}
       </Text>
 
       <TouchableOpacity onPress={handleSignOut}>
-      <LogOut stroke={theme.COLORS.PRIMARY} width={32} height={32} />
+        {button}
       </TouchableOpacity>
       </View>
     </View>

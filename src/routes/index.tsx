@@ -6,6 +6,7 @@ import { theme } from '../theme';
 
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth'
 import { Home } from '../screens/Home';
+import { TabRoutes } from './Tab.routes';
 
 export function Routes() {
 
@@ -21,7 +22,7 @@ export function Routes() {
     <View style={{ flex: 1, backgroundColor: theme.COLORS.BACKGROUND}}>
     <NavigationContainer>
 
-      {user ? <Home/> : <AuthRoutes/>}
+      {user ? <TabRoutes/> : <AuthRoutes/>}
 
     </NavigationContainer>
     </View>

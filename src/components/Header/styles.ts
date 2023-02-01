@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems:'center',
     backgroundColor: theme.COLORS.BACKGROUND,
+    marginBottom: 30
   },
   subContainer: {
     width: '90%',

@@ -21,13 +21,13 @@ export function Register() {
   const [password, setPassword] = useState('');
 
   function handleNewAccount(){
-    setIsLoading(true)
     if (email.trim().length === 0) {
       return Alert.alert('Nova Conta', 'Informe um e-mail para cadastrar.');
     }
     if (password.trim().length === 0) {
       return Alert.alert('Nova Conta', 'Informe uma senha para cadastrar.');
     }
+    setIsLoading(true)
     auth()
     .createUserWithEmailAndPassword(email, password)
     .then(() => Alert.alert("Conta", "Cadastrado com sucesso!"))
@@ -85,7 +85,7 @@ export function Register() {
           <Button
             marginTop={60}
             title='Já tenho conta'
-            color={theme.COLORS.SECONDARY}
+            color={theme.COLORS.BACKGROUND}
             onPress={handleGoBack}
             />
 

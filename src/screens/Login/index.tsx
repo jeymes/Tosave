@@ -23,13 +23,13 @@ export function Login() {
   const [password, setPassword] = useState('');
 
   function handleLogin(){
-    setIsLoading(true)
     if (email.trim().length === 0) {
       return Alert.alert('Acessar Conta', 'Informe um e-mail cadastrado para acessar.');
     }
     if (password.trim().length === 0) {
       return Alert.alert('Acessar Conta', 'Informe uma senha cadastrada para acessar.');
     }
+    setIsLoading(true)
     auth()
     .signInWithEmailAndPassword(email, password)
     .catch((error) => {
@@ -53,10 +53,10 @@ export function Login() {
 
 
   function handleForgotPassword(){
-    setIsLoading(true)
     if (email.trim().length === 0) {
       return Alert.alert('Redefinir Senha', 'Informe um e-mail cadastrado para redefinir sua senha.');
     }
+    setIsLoading(true)
     auth()
     .sendPasswordResetEmail(email)
     .then(() => Alert.alert("Redefinir senha", "Enviamos um e-mail para você."))
@@ -112,13 +112,13 @@ export function Login() {
             <Button
             marginTop={60}
             title='Cadastra-se'
-            color={theme.COLORS.SECONDARY}
+            color={theme.COLORS.BACKGROUND}
             onPress={handleNewAccount}
             />
             <Button
             marginTop={60}
             title='Redefinir Senha'
-            color={theme.COLORS.SECONDARY}
+            color={theme.COLORS.BACKGROUND}
             onPress={() => setModalVisible(true)}
             />
 

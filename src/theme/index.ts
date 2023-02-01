@@ -5,7 +5,7 @@ export const theme = {
       BACKGROUNDMODAL: '#1C1C1C',
   
       PRIMARY: '#D32323',
-      SECONDARY: '#008000	',
+      SECONDARY: '#008000',
   
       TITLE: '#D32323',
       TEXT: '#fff',
