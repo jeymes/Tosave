@@ -20,6 +20,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
+  containerTitle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    marginTop: 20,
+  },
   title: {
     fontSize: theme.FONT_SIZE.XX,
     color: theme.COLORS.PRIMARY,
@@ -32,4 +38,10 @@ export const styles = StyleSheet.create({
     fontWeight: '500',
     marginTop: 50
   },
+  containerAnimation: {
+    width: '100%',
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });

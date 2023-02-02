@@ -1,6 +1,5 @@
 import  { StyleSheet } from 'react-native';
 import { theme } from '../../theme';
-import { Rows } from 'phosphor-react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,6 +19,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+  },
+  containerTitle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    marginTop: 20,
   },
   title: {
     fontSize: theme.FONT_SIZE.XX,
@@ -83,4 +88,10 @@ export const styles = StyleSheet.create({
     color: theme.COLORS.TEXT,
     fontWeight: '700',
   },
+  containerAnimation: {
+    width: '100%',
+    height: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });

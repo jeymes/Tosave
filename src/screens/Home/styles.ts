@@ -9,15 +9,4 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%'
   },
-  containerText: {
-    flex:1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%'
-  },
-   text: {
-    color: theme.COLORS.SUBTEXT,
-    fontSize: theme.FONT_SIZE.MD,
-    fontWeight: '400',
-  },
 });

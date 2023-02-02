@@ -7,6 +7,7 @@ import { theme } from '../../theme';
 
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
+import AnimatedLottieView from 'lottie-react-native';
 
 export function Register() {
 
@@ -55,9 +56,19 @@ export function Register() {
     <View style={styles.container}>
         <View style={styles.subContainer}>
 
+        <View style={styles.containerAnimation} >
+          <AnimatedLottieView 
+        source={require('../../assets/register.json')}
+        autoPlay={true}
+        loop={false}
+        />
+          </View> 
+
+          <View style={styles.containerTitle}>
           <Text style={styles.title}>
             Cadastrar
           </Text>
+          </View>
 
             <View style={styles.containerRegister}>
             

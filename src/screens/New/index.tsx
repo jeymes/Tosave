@@ -16,7 +16,7 @@ export function New() {
 
   const [title, setTitle] = useState('');
   const [user, setUser] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('')
 
   function handleNewOrder(){
 
@@ -45,6 +45,9 @@ export function New() {
     })
     .finally(() => setLoading(false))
 
+    setTitle('')
+    setUser('')
+    setPassword('')
   }
 
   return (

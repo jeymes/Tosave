@@ -8,6 +8,7 @@ import { LogOut } from "react-native-feather";
 import { theme } from '../../theme';
 
 import firestore from '@react-native-firebase/firestore';
+import { ListEmpty } from '../../components/ListEmpty';
 
 export function Home() {
 
@@ -57,11 +58,9 @@ export function Home() {
     )}
     contentContainerStyle={notes.length === 0 && { flex:1}}
     ListEmptyComponent={() => (
-      <View  style={styles.containerText}>
-      <Text style={styles.text}>
-         Que tal cadastrar a primeira Senha.
-      </Text>
-      </View>
+      <ListEmpty
+      message='Que tal cadastrar a primeira Senha.'
+      />
     )}
     showsVerticalScrollIndicator={false}
   />
